@@ -4,3 +4,28 @@ module.exports = (error, req, res, next) => {
     const data = error.data;
     res.status(status).json({ message: message, data: data });
 };
+
+exports.dbErrorHandler = (err, next) => {
+    if (!err.statusCode) {
+        err.statusCode = 500;
+    }
+    next(err);
+};
+
+exports.validationErrorHandler = () => {
+    const error = new Error('Validation failed, entered data is incorrect');
+    error.statusCode = 422;
+    throw error;
+};
+
+exports.missingFileErrorHandler = (fileType) => {
+    const error = new Error(`No ${ fileType } provided.`);
+    error.statusCode = 422;
+    throw error;
+};
+
+exports.missingItemErrorHandler = (itemType) => {
+    const error = new Error(`Could not find ${ itemType }.`);
+    error.statusCode = 404;
+    throw error;
+};

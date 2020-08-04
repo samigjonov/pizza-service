@@ -7,6 +7,9 @@ const mongoose = require('mongoose');
 const multer = require('./helpers/multer');
 const cors = require('./helpers/cors');
 const errorHandler = require('./helpers/errorHandler');
+
+const pizzaRoutes = require('./routes/pizza');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -15,6 +18,9 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // CORS is enabled
 app.use(cors);
+
+app.use('/api', pizzaRoutes);
+
 
 // Handling thrown errors
 app.use(errorHandler);
