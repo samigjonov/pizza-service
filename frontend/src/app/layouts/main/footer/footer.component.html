@@ -1,0 +1,86 @@
+<footer class="bg-light pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <img src="assets/images/logo.png" alt="Logo" class="img-fluid logo"/>
+        <p class="text-secondary">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <div class="info">
+          <p>
+            <span>
+              <i class="fa fa-home"></i> Address: </span>777 Park Avenue New York, NY 7651
+          </p>
+          <p>
+            <span>
+              <i class="fa fa-envelope"></i> Email: </span>
+            info@newpizza.com
+          </p>
+          <p>
+            <span>
+              <i class="fa fa-phone"></i> Phone:</span>
+            +998 (97) 753–2858
+          </p>
+        </div>
+        <small class="d-block mb-3 text-muted">&copy; 2020-{{currentYear}}</small>
+
+      </div>
+      <div class="col-6 col-md-2">
+        <h5>Menu</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" [routerLink]="'/'">Home</a></li>
+          <li><a class="text-muted" [routerLink]="'/menu'">Menu</a></li>
+          <li><a class="text-muted" [routerLink]="'/about'">About us</a></li>
+          <li><a class="text-muted" [routerLink]="'/partners'">Partners</a></li>
+          <li><a class="text-muted" [routerLink]="'/gallery'">Gallery</a></li>
+          <li><a class="text-muted" [routerLink]="'/testimonials'">Testimonials</a></li>
+          <li><a class="text-muted" [routerLink]="'/contact'">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h5>Authentication</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" [routerLink]="'/login'">Login</a></li>
+          <li><a class="text-muted" [routerLink]="'/signup'">Sign up</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4">
+        <h5>Newsletter</h5>
+        <form class="form-inline">
+          <div class="form-group mx-sm-3 mb-2">
+            <input type="email" class="form-control" id="email" placeholder="Email">
+          </div>
+          <button type="submit" class="btn btn-outline-secondary mb-2">Subscribe</button>
+        </form>
+        <hr>
+        <h5>Follow us</h5>
+        <ul class="list-unstyled social-network">
+          <li>
+            <a href="#">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-telegram"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-youtube"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
