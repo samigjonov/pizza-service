@@ -1,0 +1,19 @@
+.advantages {
+  padding: 100px 0;
+  &__advantage {
+    text-align: center;
+    i {
+      margin-bottom: 10px;
+    }
+    .divider {
+      width: 50px;
+      height: 5px;
+      background-color: red;
+      margin: 0 auto;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+}

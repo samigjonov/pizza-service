@@ -1,0 +1,31 @@
+.about {
+  min-height: 600px;
+  background-color: #F8F9FA;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: 30px;
+  background-image: url("../../../../assets/images/chef.png");
+  padding: 100px 100px 50px;
+  margin-top: 50px;
+
+  p {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    li {
+      text-align: center;
+
+      span {
+        font-size: 48px;
+        font-weight: bold;
+      }
+    }
+  }
+}

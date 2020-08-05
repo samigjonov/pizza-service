@@ -1,0 +1,19 @@
+.testimonials {
+  padding: 100px 0 50px;
+
+  > p {
+    padding: 0 100px;
+  }
+
+  &-container {
+
+    &__item {
+      padding: 10px;
+
+      img {
+        width: 120px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

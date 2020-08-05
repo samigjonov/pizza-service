@@ -1,0 +1,14 @@
+.partners {
+  padding: 100px 0;
+  p {
+    padding: 0 100px;
+  }
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__item {
+      width: 200px;
+    }
+  }
+}

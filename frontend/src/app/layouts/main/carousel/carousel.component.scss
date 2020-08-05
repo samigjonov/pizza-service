@@ -1,0 +1,23 @@
+.carousel-container {
+  padding: 25px 25px 0;
+  outline: none;
+
+  &:focus,
+  &:active {
+    .carousel.slide {
+      outline: none;
+    }
+  }
+
+  .carousel-caption {
+    top: 60px;
+    left: 5%;
+    text-align: left;
+  }
+
+  img {
+    border-radius: 25px;
+    width: 100%;
+    height: 500px;
+  }
+}

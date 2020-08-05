@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="partners text-center">
+    <h1>Our Partners</h1>
+    <p class="text-secondary">
+      We are glad to offer our visitors high-quality pizzas, but we also believe our whole business couldn’t
+      be successful without our client.
+    </p>
+    <div class="partners-container">
+      <div class="partners-container__item" *ngFor="let partner of partners; let i = index">
+        <img [src]="partner" alt="Partner {{ i }}" class="img-fluid">
+      </div>
+    </div>
+  </div>
+
+</div>

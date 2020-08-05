@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="testimonials text-center">
+    <h1>Our Testimonials</h1>
+    <p class="text-secondary">
+      While customer testimonials can appear in many formats, there are still some common guidelines to follow
+      regardless of which approach you choose.
+    </p>
+    <div class="testimonials-container row">
+      <div class="testimonials-container__item col-md-4 col-sm-6"
+           *ngFor="let testimonial of testimonials; let i = index">
+        <img [src]="testimonial" alt="Testimonial {{ i }}" class="img-fluid rounded-circle">
+        <h6>The Best Pizza in the Area</h6>
+        <p class="text-secondary">
+          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+          some form.
+        </p>
+        <p>
+          By <i>Andrew</i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
