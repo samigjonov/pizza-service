@@ -43,6 +43,14 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="'/signup'">Sign up</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" (click)="openCart()">
+            <div class="cart-icon">
+              <i class="fa fa-2x fa-shopping-cart"></i>
+              <span class="badge badge-info" *ngIf="count">{{count < 9 ? count : '9+'}}</span>
+            </div>
+          </a>
+        </li>
       </ul>
     </div>
   </div>

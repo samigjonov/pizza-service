@@ -3,161 +3,24 @@
     <h2>Menu</h2>
     <hr>
     <div class="row">
-      <div class="col-sm-6 col-md-3 item">
+      <div class="col-sm-6 col-md-3 item" *ngFor="let pizza of pizzas">
         <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
+          <img [src]="pizza.imageUrl" class="item__image" alt="{{pizza.title}}">
         </div>
         <h5 class="item__title">
-          Margarita
+          {{pizza.title}}
         </h5>
         <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
+          {{ pizza.description }}
         </p>
         <div class="item__footer">
           <span class="item__price">
-            38$
+            {{ pizza.price }} $
           </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 item">
-        <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
-        </div>
-        <h5 class="item__title">
-          Margarita
-        </h5>
-        <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
-        </p>
-        <div class="item__footer">
-          <span class="item__price">
-            38$
-          </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 item">
-        <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
-        </div>
-        <h5 class="item__title">
-          Margarita
-        </h5>
-        <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
-        </p>
-        <div class="item__footer">
-          <span class="item__price">
-            38$
-          </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 item">
-        <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
-        </div>
-        <h5 class="item__title">
-          Margarita
-        </h5>
-        <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
-        </p>
-        <div class="item__footer">
-          <span class="item__price">
-            38$
-          </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 item">
-        <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
-        </div>
-        <h5 class="item__title">
-          Margarita
-        </h5>
-        <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
-        </p>
-        <div class="item__footer">
-          <span class="item__price">
-            38$
-          </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 item">
-        <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
-        </div>
-        <h5 class="item__title">
-          Margarita
-        </h5>
-        <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
-        </p>
-        <div class="item__footer">
-          <span class="item__price">
-            38$
-          </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 item">
-        <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
-        </div>
-        <h5 class="item__title">
-          Margarita
-        </h5>
-        <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
-        </p>
-        <div class="item__footer">
-          <span class="item__price">
-            38$
-          </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 item">
-        <div class="text-center">
-          <img src="assets/images/pizza.jpg" class="item__image" alt="Menu item image">
-        </div>
-        <h5 class="item__title">
-          Margarita
-        </h5>
-        <p class="item__description text-secondary">
-          Моцарелла, томаты, орегано, томатный соус
-        </p>
-        <div class="item__footer">
-          <span class="item__price">
-            38$
-          </span>
-          <button type="button" class="btn btn-outline-secondary item__action">
+          <button
+            (click)="addToCart(pizza)"
+            type="button"
+            class="btn btn-outline-secondary item__action">
             <i class="fa fa-shopping-cart"></i>
             Add to cart
           </button>

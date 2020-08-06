@@ -1,5 +1,13 @@
-<app-navbar></app-navbar>
-<section>
-  <router-outlet></router-outlet>
-</section>
-<app-footer></app-footer>
+<div id="wrapper">
+  <nav id="sidebar" [class.active]="isCartOpen">
+    <app-cart></app-cart>
+  </nav>
+  <div id="content">
+    <app-navbar></app-navbar>
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+    <app-footer></app-footer>
+  </div>
+</div>
+<div class="overlay" [class.active]="isCartOpen" (click)="toggleCart()"></div>

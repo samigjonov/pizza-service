@@ -1,0 +1,105 @@
+
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px 30px;
+    color: #5E6977;
+    font-size: 18px;
+    font-weight: 400;
+
+    > i {
+      float: right;
+      cursor: pointer;
+    }
+  }
+
+  .item {
+    background: #FFFFFF;
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 6px;
+    padding: 20px 30px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+
+    button[class*=btn] {
+      width: 30px;
+      height: 30px;
+      background-color: #E1E8EE;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:focus,
+    input:focus {
+      outline: 0;
+    }
+
+
+    img {
+      width: 72px;
+    }
+
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+
+      i {
+        cursor: pointer;
+
+        &:hover {
+          color: #DC3545
+        }
+      }
+    }
+  }
+
+
+  .description {
+    margin: 0 10px;
+    width: 100px;
+  }
+
+  .description span {
+    display: block;
+    font-size: 14px;
+    color: #43484D;
+    font-weight: 400;
+  }
+
+  .quantity {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quantity input {
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+  }
+
+
+  .total-price {
+    text-align: center;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+  }
+}
+

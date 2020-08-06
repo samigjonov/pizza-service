@@ -1,3 +1,62 @@
 section {
   margin-top: 70px;
 }
+
+#sidebar {
+  width: 400px;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  height: 100vh;
+  z-index: 999;
+  background: #F8F9FA;
+  transition: all 0.3s;
+  overflow-y: scroll;
+}
+
+#sidebar.active {
+  right: 0;
+}
+
+#dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  font-weight: bold;
+
+  i {
+    float: right;
+  }
+}
+
+
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { SharedService } from "../../core/services/shared.service";
 
 @Component({
   selector: 'app-main',
@@ -7,5 +8,15 @@ import { Component } from "@angular/core";
 })
 
 export class MainComponent {
+  public isCartOpen = false;
+
+  public constructor(private sharedService: SharedService) {
+    this.sharedService.card.subscribe(currentValue => this.isCartOpen = currentValue);
+  }
+
+  public toggleCart() {
+    this.sharedService.toggleCart();
+  }
+
 
 }

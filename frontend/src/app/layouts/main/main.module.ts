@@ -5,7 +5,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HomeComponent } from "./home/home.component";
 import { CommonModule } from "@angular/common";
-import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbCarouselModule, NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
 import { CarouselComponent } from "./carousel/carousel.component";
 import { AboutComponent } from "./about/about.component";
 import { AdvantagesComponent } from "./advantages/advantages.component";
@@ -14,9 +14,19 @@ import { PartnersComponent } from "./partners/partners.component";
 import { GalleryComponent } from "./gallery/gallery.component";
 import { NgxGalleryModule } from "@kolkov/ngx-gallery";
 import { TestimonialsComponent } from "./testimonials/testimonials.component";
+import { CartComponent } from "./cart/cart.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-  imports: [MainRoutingModule, CommonModule, NgbCarouselModule, NgxGalleryModule],
+  imports: [
+    MainRoutingModule,
+    CommonModule,
+    NgbCarouselModule,
+    NgxGalleryModule,
+    NgbTooltipModule,
+    FormsModule,
+    ReactiveFormsModule],
   exports: [],
   declarations: [
     MainComponent,
@@ -29,8 +39,11 @@ import { TestimonialsComponent } from "./testimonials/testimonials.component";
     MenuComponent,
     PartnersComponent,
     GalleryComponent,
-    TestimonialsComponent
-  ]
+    TestimonialsComponent,
+    CartComponent,
+    CheckoutComponent
+  ],
+  providers: []
 })
 
 export class MainModule {

@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const multer = require('./helpers/multer');
 const cors = require('./helpers/cors');
-const errorHandler = require('./helpers/errorHandler');
+const { globalErrorHandler } = require('./helpers/errorHandler');
 
 const pizzaRoutes = require('./routes/pizza');
 
@@ -23,12 +23,12 @@ app.use('/api', pizzaRoutes);
 
 
 // Handling thrown errors
-app.use(errorHandler);
+app.use(globalErrorHandler);
 
 mongoose.connect(
     process.env.MONGO_URI,
     { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => {
-        app.listen(8080);
+        app.listen(3500);
     })
     .catch(err => console.log(err));

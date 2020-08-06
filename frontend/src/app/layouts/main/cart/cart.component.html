@@ -1,0 +1,53 @@
+<div class="shopping-cart">
+  <!-- Title -->
+  <div class="title">
+    Shopping Cart <i class="fa fa-arrow-right" (click)="toggleCart()"></i>
+  </div>
+
+  <ng-container *ngIf="cartItems.length; else noItems">
+    <!-- Product #1 -->
+    <div class="item" *ngFor="let cartItem of cartItems">
+      <div class="action-buttons text-center">
+      <span class="delete-btn" ngbTooltip="Remove" (click)="removeAllFromCart(cartItem.item)">
+        <i class="fa fa-trash-o"></i>
+      </span>
+        <span class="like-btn" ngbTooltip="Like">
+        <i class="fa fa-heart-o"></i>
+      </span>
+      </div>
+
+      <div class="image">
+        <img [src]="cartItem.item.imageUrl" alt="Cart item image" class="img-fluid"/>
+      </div>
+
+      <div class="description">
+        <span class="text-secondary">{{cartItem.item.title}}</span>
+      </div>
+
+      <div class="quantity">
+        <button (click)="addToCart(cartItem.item)" class="plus-btn" type="button" name="button">
+          <i class="fa fa-plus"></i>
+        </button>
+        <input type="text" name="name" [value]="cartItem.quantity">
+        <button (click)="removeFromCart(cartItem.item)" class="minus-btn" type="button" name="button">
+          <i class="fa fa-minus"></i>
+        </button>
+      </div>
+
+      <div class="total-price">$ {{ cartItem.item.price }} x {{ cartItem.quantity }}</div>
+    </div>
+    <!-- Product #1 -->
+
+    <div class="title">
+      Total price: {{totalPrice | number: '1.1-1'}}$
+      <a class="btn btn-outline-secondary" [routerLink]="'/checkout'" (click)="toggleCart()"><i
+        class="fa fa-credit-card"></i> Checkout</a>
+    </div>
+  </ng-container>
+
+  <ng-template #noItems>
+    <div class="alert alert-info">
+      No items in the cart
+    </div>
+  </ng-template>
+</div>

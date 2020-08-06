@@ -1,6 +1,12 @@
 {
   "/api/*": {
-    "target": "https://localhost:3500",
+    "target": "http://localhost:3500",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/images/*": {
+    "target": "http://localhost:3500",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
