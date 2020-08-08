@@ -4,11 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
 import { ShopReducer } from "./core/store/reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { ShopEffects } from "./core/store/effects";
+import { JwtInterceptor } from "./core/interceptors/jwt.interceptor";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ShopEffects } from "./core/store/effects";
     StoreModule.forRoot({shop: ShopReducer}),
     EffectsModule.forRoot([ShopEffects])
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

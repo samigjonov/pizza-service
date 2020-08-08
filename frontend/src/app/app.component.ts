@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetItems } from "./core/store/actions";
+import { GetCurrency, GetItems } from "./core/store/actions";
 import { Store } from "@ngrx/store";
 
 @Component({
@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.store.dispatch(new GetItems());
+    this.store.dispatch(new GetCurrency());
   }
 
 }

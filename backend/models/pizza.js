@@ -27,4 +27,4 @@ const pizzaSchema = new Schema({
 
 exports.pizzaSchema = pizzaSchema;
 
-module.exports = mongoose.model('Pizza', pizzaSchema);
+exports.pizzaModel = mongoose.model('Pizza', pizzaSchema);

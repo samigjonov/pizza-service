@@ -1,0 +1,23 @@
+.form-signin {
+  padding: 100px 0;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+
+  .logo {
+    width: 128px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .form-signin {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form-signin {
+    width: 80%;
+    padding: 50px 0;
+  }
+}

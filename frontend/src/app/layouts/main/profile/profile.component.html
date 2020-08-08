@@ -1,0 +1,54 @@
+<div class="profile">
+  <div class="container">
+    <h2>Orders</h2>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Address</th>
+              <th scope="col">Items</th>
+              <th scope="col">Total price</th>
+              <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let order of orders; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ order.firstName }}</td>
+              <td>{{ order.lastName }}</td>
+              <td>{{order.email}}</td>
+              <td>{{order.phoneNumber}}</td>
+              <td>{{order.address}}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let item of order.items">
+                    <b>{{ item.item.title }}</b>: {{ item.quantity }} item(s)
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <p>
+                  <b>USD: </b>{{ order.totalPrice.usd }}
+                </p>
+                <p>
+                  <b>EUR: </b>{{ order.totalPrice.eur }}
+                </p>
+              </td>
+              <td>
+                {{ order.createdAt | date }}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

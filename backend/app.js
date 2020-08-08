@@ -9,7 +9,9 @@ const cors = require('./helpers/cors');
 const { globalErrorHandler } = require('./helpers/errorHandler');
 
 const pizzaRoutes = require('./routes/pizza');
-
+const orderRoutes = require('./routes/order');
+const authRoutes = require('./routes/auth');
+const rateRoutes = require('./routes/rate');
 const app = express();
 
 app.use(bodyParser.json());
@@ -20,7 +22,9 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(cors);
 
 app.use('/api', pizzaRoutes);
-
+app.use('/api', orderRoutes);
+app.use('/api', authRoutes);
+app.use('/api', rateRoutes);
 
 // Handling thrown errors
 app.use(globalErrorHandler);

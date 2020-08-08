@@ -23,15 +23,21 @@ export class GalleryComponent implements OnInit {
         thumbnailMargin: 0,
         previewDownload: true
       },
-      // max-width 800
       {
-        breakpoint: 800,
+        breakpoint: 992,
         imagePercent: 80,
+        thumbnailsColumns: 3,
         thumbnailsPercent: 20,
       },
-      // max-width 400
       {
-        breakpoint: 400,
+        breakpoint: 768,
+        imagePercent: 80,
+        thumbnailsColumns: 2,
+        thumbnailsPercent: 20,
+      },
+      {
+        breakpoint: 576,
+        thumbnailsColumns: 1,
         preview: false
       }
     ];

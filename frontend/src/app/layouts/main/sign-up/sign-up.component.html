@@ -1,0 +1,57 @@
+<div class="container">
+  <form class="form-signup" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="text-center">
+      <img class="mb-4 logo" src="assets/images/logo.png" alt="Logo">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    </div>
+    <div class="form-group">
+      <label for="firstName" class="sr-only">First name</label>
+      <input formControlName="firstName" type="text" id="firstName" class="form-control" placeholder="First name" required>
+      <div class="invalid-feedback"
+           [ngStyle]="{'display': firstName.invalid && (firstName.dirty || firstName.touched) ? 'block' : 'none'}">
+        First name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName" class="sr-only">Last name</label>
+      <input formControlName="lastName" type="text" id="lastName" class="form-control" placeholder="Last name" required>
+      <div class="invalid-feedback"
+           [ngStyle]="{'display': lastName.invalid && (lastName.dirty || lastName.touched) ? 'block' : 'none'}">
+        Last name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      <div class="invalid-feedback"
+           [ngStyle]="{'display': email.invalid && (email.dirty || email.touched) ? 'block' : 'none'}">
+        Valid email is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber" class="sr-only">Phone number</label>
+      <input formControlName="phoneNumber" type="text" id="phoneNumber" class="form-control" placeholder="Phone number" required>
+      <div class="invalid-feedback"
+           [ngStyle]="{'display': phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched) ? 'block' : 'none'}">
+        Phone number is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="invalid-feedback"
+           [ngStyle]="{'display': password.invalid && (password.dirty || password.touched) ? 'block' : 'none'}">
+        Password with minimum 5 characters is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPasswordRepeat" class="sr-only">Password repeat</label>
+      <input formControlName="passwordRepeat" type="password" id="inputPasswordRepeat" class="form-control" placeholder="Password repeat" required>
+      <div class="invalid-feedback"
+           [ngStyle]="{'display': passwordRepeat.invalid && (passwordRepeat.dirty || passwordRepeat.touched) ? 'block' : 'none'}">
+        Passwords did not match.
+      </div>
+    </div>
+    <button [disabled]="signUpForm.invalid" class="btn btn-lg btn-outline-secondary btn-block" type="submit">Sign up</button>
+  </form>
+</div>

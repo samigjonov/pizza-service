@@ -2,12 +2,14 @@ import { Action } from '@ngrx/store';
 import { Pizza } from "../models/pizza.model";
 
 export enum ActionTypes {
-  Add = '[Pizza] Add to cart',
-  Remove = '[Pizza] Remove from cart',
-  LoadItems = '[Pizza] Load items from server',
-  LoadSuccess = '[Pizza] Load success',
-  ClearCart = '[Pizza] Clear Cart',
-  RemoveItem = '[Pizza] Remove item from cart'
+  Add = 'Add to cart',
+  Remove = 'Remove from cart',
+  LoadItems = 'Load pizzas from server',
+  LoadCurrency = 'Load currency from server',
+  LoadSuccess = 'Load pizzas success',
+  RateSuccess = 'Rate success',
+  ClearCart = 'Clear Cart',
+  RemoveItem = 'Remove item from cart'
 }
 
 export class AddToCart implements Action {
@@ -19,6 +21,10 @@ export class AddToCart implements Action {
 
 export class GetItems implements Action {
   readonly type = ActionTypes.LoadItems;
+}
+
+export class GetCurrency implements Action {
+  readonly type = ActionTypes.LoadCurrency;
 }
 
 export class RemoveFromCart implements Action {
@@ -35,6 +41,13 @@ export class LoadItems implements Action {
   }
 }
 
+export class LoadRate implements Action {
+  readonly type = ActionTypes.RateSuccess;
+
+  constructor(public payload: any) {
+  }
+}
+
 
 export class RemoveItem implements Action {
   readonly type = ActionTypes.RemoveItem;
@@ -48,4 +61,12 @@ export class ClearCart implements Action {
   readonly type = ActionTypes.ClearCart;
 }
 
-export type ActionsUnion = AddToCart | RemoveFromCart | LoadItems | GetItems | ClearCart | RemoveItem;
+export type ActionsUnion =
+  AddToCart
+  | RemoveFromCart
+  | LoadItems
+  | GetItems
+  | ClearCart
+  | RemoveItem
+  | LoadRate
+  | GetCurrency;

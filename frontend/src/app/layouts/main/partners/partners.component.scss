@@ -12,3 +12,15 @@
     }
   }
 }
+
+
+@media screen and (max-width: 768px) {
+  .partners{
+    &-container {
+      flex-direction: column;
+      &__item {
+        margin: 20px 0;
+      }
+    }
+  }
+}

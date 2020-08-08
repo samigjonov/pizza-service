@@ -12,9 +12,10 @@ exports.dbErrorHandler = (err, next) => {
     next(err);
 };
 
-exports.validationErrorHandler = () => {
+exports.validationErrorHandler = (errors) => {
     const error = new Error('Validation failed, entered data is incorrect');
     error.statusCode = 422;
+    error.data = errors;
     throw error;
 };
 

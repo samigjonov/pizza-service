@@ -20,14 +20,14 @@ export class SwalService {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancel',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes!'
     });
   }
 
   public showBasicAlert(params: any = {}) {
     return Swal.fire(
       params.title ? params.title : 'Success!',
-      params.message ? params.message : 'Your request has been registered.',
+      params.message ? params.message : 'Your request has been registered. Our staff will contact you!',
       params.type ? params.type : 'success');
   }
 

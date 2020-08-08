@@ -2,12 +2,20 @@ import { ActionsUnion, ActionTypes } from './actions';
 
 export const initialState = {
   items: [],
-  cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+  cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
+  rate: 1
 };
 
 export function ShopReducer(state = initialState, action: ActionsUnion) {
   let cart, itemIndex;
   switch (action.type) {
+    case ActionTypes.RateSuccess:
+      localStorage.setItem('rate', action.payload);
+      return {
+        ...state,
+        rate: action.payload
+      };
+
     case ActionTypes.LoadSuccess:
       return {
         ...state,

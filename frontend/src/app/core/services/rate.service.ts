@@ -5,12 +5,11 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 
-export class CheckoutService {
+export class RateService {
   public constructor(private httpClient: HttpClient) {
   }
 
-  public createOrder(checkoutForm: any) {
-    return this.httpClient.post('/api/main', checkoutForm).toPromise();
+  public getRate() {
+    return this.httpClient.get('/api/rate');
   }
 }
-

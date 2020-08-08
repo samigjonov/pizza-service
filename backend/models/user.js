@@ -18,7 +18,21 @@ const userSchema = new Schema({
     lastName: {
         type: String,
         required: true
-    }
+    },
+    phoneNumber: {
+        type: String,
+        required: true
+    },
+    status: {
+        type: String,
+        default: 'Active'
+    },
+    orders: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Order'
+        }
+    ]
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);

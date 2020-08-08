@@ -1,12 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container">
-    <a class="navbar-brand logo" href="#">
+    <a class="navbar-brand logo" routerLink="/">
       <img src="assets/images/logo.png" alt="Logo" class="logo__image"/>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" (click)="isMobileMenuOpen = !isMobileMenuOpen"></span>
-    </button>
+    <div class="nav">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" (click)="isMobileMenuOpen = !isMobileMenuOpen"></span>
+      </button>
+      <a class="nav-link d-block d-lg-none" href="javascript:void(0)" (click)="openCart()">
+        <div class="cart-icon">
+          <i class="fa fa-2x fa-shopping-cart"></i>
+          <span class="badge badge-info" *ngIf="count">{{count < 9 ? count : '9+'}}</span>
+        </div>
+      </a>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': isMobileMenuOpen}">
       <ul class="navbar-nav mr-auto">
@@ -34,16 +42,45 @@
       </ul>
 
       <ul class="my-2 my-lg-0 navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"> +998 (97) 753–2858</a>
+
+        <ng-container *ngIf="!user; else userInfo">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/login'">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/signup'">Sign up</a>
+          </li>
+        </ng-container>
+        <ng-template #userInfo>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/profile'">
+              <i class="fa fa-user"></i>
+              {{ user.lastName }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="logout()">
+              <i class="fa fa-sign-out"></i>
+              Logout
+            </a>
+          </li>
+        </ng-template>
+        <li class="nav-item dropdown" (click)="isCurrencyChangerOpen = !isCurrencyChangerOpen">
+          <a class="nav-link dropdown-toggle"
+             href="javascript:void(0)" id="navbarDropdown"
+             role="button"
+             data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-{{ currentCurrency === 'eur' ? 'eur' : 'usd' }}"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" [class.show]="isCurrencyChangerOpen">
+            <a class="dropdown-item" href="javascript:void(0)" (click)="reload()">
+              <i
+                class="fa fa-{{ currentCurrency === 'eur' ? 'usd' : 'eur' }}"></i> {{ currentCurrency === 'eur' ? 'USD' : 'EUR' }}
+            </a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/login'">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/signup'">Sign up</a>
-        </li>
-        <li class="nav-item">
+        <li class="nav-item d-none d-lg-block">
           <a class="nav-link" href="javascript:void(0)" (click)="openCart()">
             <div class="cart-icon">
               <i class="fa fa-2x fa-shopping-cart"></i>

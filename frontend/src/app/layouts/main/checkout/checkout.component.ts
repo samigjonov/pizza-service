@@ -4,9 +4,9 @@ import { Pizza } from "../../../core/models/pizza.model";
 import { SharedService } from "../../../core/services/shared.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { SwalService } from "../../../core/services/swal.service";
-import { CheckoutService } from "../../../core/services/checkout.service";
 import { Router } from "@angular/router";
 import { ClearCart } from "../../../core/store/actions";
+import { OrderService } from "../../../core/services/order.service";
 
 @Component({
   selector: 'app-checkout',
@@ -19,9 +19,10 @@ export class CheckoutComponent {
   public totalPrice: number = 0;
   public count: number = 0;
   public checkoutForm: FormGroup;
+  public deliveryCost = 10;
 
   public constructor(private sharedService: SharedService, private store: Store<any>,
-                     private swalService: SwalService, private checkoutService: CheckoutService,
+                     private swalService: SwalService, private orderService: OrderService,
                      private router: Router) {
     store.pipe(select('shop')).subscribe((data: any) => {
       this.cartItems = data.cart;
@@ -32,11 +33,13 @@ export class CheckoutComponent {
         return previousValue + item.quantity;
       }, 0);
     });
+    const user = JSON.parse(localStorage.getItem('user')) || null;
     this.checkoutForm = new FormGroup({
-      firstName: new FormControl(null, Validators.required),
-      lastName: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      address: new FormControl(null, Validators.required)
+      firstName: new FormControl(user ? user.firstName : null, Validators.required),
+      lastName: new FormControl(user ? user.lastName : null, Validators.required),
+      email: new FormControl(user ? user.email : null, [Validators.required, Validators.email]),
+      address: new FormControl(null, Validators.required),
+      phoneNumber: new FormControl(user ? user.phoneNumber : null, Validators.required)
     })
   }
 
@@ -44,7 +47,19 @@ export class CheckoutComponent {
     this.swalService.showConfirmDialog().then(async (result) => {
       if (result.value) {
         try {
-          await this.checkoutService.createOrder(this.checkoutForm.getRawValue());
+          const sendingItems = this.cartItems.reduce((previousValue, item) => {
+            previousValue[item.item._id] = item.quantity;
+            return previousValue;
+          }, {});
+          const sendingValue = {
+            ...this.checkoutForm.getRawValue(),
+            items: sendingItems,
+            price: {
+              usd: Math.ceil(this.totalPrice),
+              eur: Math.ceil(this.totalPrice * 0.9)
+            }
+          };
+          await this.orderService.createOrder(sendingValue);
           this.swalService.showBasicAlert();
           this.store.dispatch(new ClearCart());
           this.router.navigate(['/']);
@@ -69,6 +84,10 @@ export class CheckoutComponent {
 
   public get address() {
     return this.checkoutForm.get('address');
+  }
+
+  public get phoneNumber() {
+    return this.checkoutForm.get('phoneNumber');
   }
 
 }

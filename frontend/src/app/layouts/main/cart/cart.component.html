@@ -34,12 +34,12 @@
         </button>
       </div>
 
-      <div class="total-price">$ {{ cartItem.item.price }} x {{ cartItem.quantity }}</div>
+      <div class="total-price">{{ cartItem.item.price | currentCurrency}} x {{ cartItem.quantity }}</div>
     </div>
     <!-- Product #1 -->
 
     <div class="title">
-      Total price: {{totalPrice | number: '1.1-1'}}$
+      Total price: {{totalPrice | currentCurrency}}
       <a class="btn btn-outline-secondary" [routerLink]="'/checkout'" (click)="toggleCart()"><i
         class="fa fa-credit-card"></i> Checkout</a>
     </div>

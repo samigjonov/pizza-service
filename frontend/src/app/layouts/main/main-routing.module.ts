@@ -3,6 +3,9 @@ import { Route, RouterModule } from "@angular/router";
 import { MainComponent } from "./main.component";
 import { HomeComponent } from "./home/home.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
+import { LoginComponent } from "./login/login.component";
+import { SignUpComponent } from "./sign-up/sign-up.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 const routes: Route[] = [
   {
@@ -17,6 +20,18 @@ const routes: Route[] = [
       {
         path: 'checkout',
         component: CheckoutComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'signup',
+        component: SignUpComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       }
     ]
   },

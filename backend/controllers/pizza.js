@@ -3,7 +3,7 @@ const { validationResult } = require('express-validator');
 const { dbErrorHandler, validationErrorHandler, missingFileErrorHandler, missingItemErrorHandler } = require('../helpers/errorHandler');
 const { clearImage } = require('../helpers/image-manipulate');
 
-const Pizza = require('../models/pizza');
+const Pizza = require('../models/pizza').pizzaModel;
 
 
 exports.getPizzas = (req, res, next) => {

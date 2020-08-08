@@ -2,6 +2,10 @@
   padding: 25px 25px 0;
   outline: none;
 
+  .carousel-caption, .carousel-indicators {
+    z-index: 1;
+  }
+
   &:focus,
   &:active {
     .carousel.slide {
@@ -19,5 +23,23 @@
     border-radius: 25px;
     width: 100%;
     height: 500px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .carousel-container {
+    img {
+      height: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    padding: 20px 0;
+
+    img {
+      height: 300px;
+    }
   }
 }

@@ -17,6 +17,11 @@ import { TestimonialsComponent } from "./testimonials/testimonials.component";
 import { CartComponent } from "./cart/cart.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from "./login/login.component";
+import { SignUpComponent } from "./sign-up/sign-up.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { AppModule } from "../../app.module";
+import { CurrentCurrencyPipe } from "../../core/pipes/current-currency.pipe";
 
 @NgModule({
   imports: [
@@ -26,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     NgxGalleryModule,
     NgbTooltipModule,
     FormsModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+  ],
   exports: [],
   declarations: [
     MainComponent,
@@ -41,7 +47,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     GalleryComponent,
     TestimonialsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LoginComponent,
+    SignUpComponent,
+    ProfileComponent,
+    CurrentCurrencyPipe
+
   ],
   providers: []
 })

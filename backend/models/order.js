@@ -17,11 +17,15 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     phoneNumber: {
         type: String,
         required: true
     },
-    items: [pizzaSchema],
+    items: [{item: pizzaSchema, quantity: Number}],
     totalPrice: {
         type: Map,
         of: Number

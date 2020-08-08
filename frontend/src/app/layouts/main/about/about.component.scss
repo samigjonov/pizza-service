@@ -29,3 +29,38 @@
     }
   }
 }
+
+
+@media screen and (max-width: 1200px) {
+  .about {
+    background-position: 110%;
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+  .about {
+    background-position: 140%;
+
+    ul {
+      flex-direction: column;
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .about {
+    background-position: 220%;
+    padding: 40px;
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .about {
+    margin-top: 100px;
+    background-image: none;
+  }
+}
+
