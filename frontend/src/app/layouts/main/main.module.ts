@@ -20,8 +20,42 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./login/login.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { AppModule } from "../../app.module";
 import { CurrentCurrencyPipe } from "../../core/pipes/current-currency.pipe";
+import { LoaderWrapperComponent } from "../../ui/loader-wrapper/loader-wrapper.component";
+import { PageHeaderComponent } from "../../ui/page-header/page-header.component";
+import { PizzasComponent } from "./pages/pizzas/pizzas.component";
+import { AboutUsComponent } from "./pages/about-us/about-us.component";
+import { PartnerComponent } from "./pages/partners/partner.component";
+import { GalleriesComponent } from "./pages/galleries/galleries.component";
+import { TestimonialsPageComponent } from "./pages/testimonials/testimonials.component";
+import { ContactComponent } from "./pages/contact/contact.component";
+
+const COMPONENTS = [
+  MainComponent,
+  NavbarComponent,
+  FooterComponent,
+  HomeComponent,
+  CarouselComponent,
+  AboutComponent,
+  AdvantagesComponent,
+  MenuComponent,
+  PartnersComponent,
+  GalleryComponent,
+  TestimonialsComponent,
+  CartComponent,
+  CheckoutComponent,
+  LoginComponent,
+  SignUpComponent,
+  ProfileComponent,
+  LoaderWrapperComponent,
+  PageHeaderComponent,
+  PizzasComponent,
+  AboutUsComponent,
+  PartnerComponent,
+  GalleriesComponent,
+  TestimonialsPageComponent,
+  ContactComponent
+];
 
 @NgModule({
   imports: [
@@ -35,24 +69,8 @@ import { CurrentCurrencyPipe } from "../../core/pipes/current-currency.pipe";
   ],
   exports: [],
   declarations: [
-    MainComponent,
-    NavbarComponent,
-    FooterComponent,
-    HomeComponent,
-    CarouselComponent,
-    AboutComponent,
-    AdvantagesComponent,
-    MenuComponent,
-    PartnersComponent,
-    GalleryComponent,
-    TestimonialsComponent,
-    CartComponent,
-    CheckoutComponent,
-    LoginComponent,
-    SignUpComponent,
-    ProfileComponent,
-    CurrentCurrencyPipe
-
+    ...COMPONENTS,
+    CurrentCurrencyPipe,
   ],
   providers: []
 })

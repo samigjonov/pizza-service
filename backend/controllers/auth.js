@@ -90,3 +90,24 @@ exports.login = (req, res, next) => {
             dbErrorHandler(err, next);
         })
 };
+
+
+exports.profile = (req, res, next) => {
+    const userId = req.userId;
+    if (userId) {
+        User.findById(userId)
+            .then(user => {
+                res.status(200).json({
+                    message: 'User fetched.',
+                })
+            })
+            .catch(err => {
+                dbErrorHandler(err, next);
+            })
+    } else {
+        res.status(422).json({
+            message: 'User not found.'
+        })
+    }
+
+};

@@ -1,0 +1,8 @@
+<ng-container *ngIf="loading; else content">
+  <div class="text-center">
+    <i class="fa fa-spinner fa-5x fa-spin text-info"></i>
+  </div>
+</ng-container>
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

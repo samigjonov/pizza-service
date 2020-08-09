@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GetCurrency, GetItems } from './core/store/actions';
 import { Store } from '@ngrx/store';
+import { AuthService } from "./core/services/auth.service";
+import { SharedService } from "./core/services/shared.service";
 
 @Component({
   selector: 'app-root',
@@ -10,12 +12,19 @@ import { Store } from '@ngrx/store';
 export class AppComponent implements OnInit {
   title = 'Pizza service';
 
-  public constructor(private store: Store) {
+  public constructor(private store: Store,
+                     private authService: AuthService,
+                     private sharedService: SharedService) {
   }
 
-  public ngOnInit(): void {
+  public async ngOnInit() {
     this.store.dispatch(new GetItems());
     this.store.dispatch(new GetCurrency());
+    try {
+      await this.authService.getProfile();
+    } catch (e) {
+      this.sharedService.removeUser();
+    }
   }
 
 }

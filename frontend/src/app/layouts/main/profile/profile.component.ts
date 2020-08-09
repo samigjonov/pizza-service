@@ -12,12 +12,18 @@ import { OrderService } from "../../../core/services/order.service";
 
 export class ProfileComponent implements OnInit {
   public orders: Order[] = [];
+  public loading = false;
 
   public constructor(private sharedService: SharedService, private router: Router,
                      private orderService: OrderService) {
   }
 
   public async ngOnInit() {
-    this.orders = (await this.orderService.getOrders()).data;
+    this.loading = true;
+    try {
+      this.orders = (await this.orderService.getOrders()).data;
+    } finally {
+      this.loading = false;
+    }
   }
 }

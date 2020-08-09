@@ -11,9 +11,12 @@ import { AddToCart } from "../../../core/store/actions";
 
 export class MenuComponent implements OnInit {
   public pizzas: Pizza[];
+  public loading: boolean;
 
   constructor(private store: Store<any>) {
+    this.loading = true;
     store.pipe(select('shop')).subscribe((data: any) => {
+      this.loading = false;
       this.pizzas = data.items;
     });
   }

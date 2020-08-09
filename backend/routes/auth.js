@@ -3,6 +3,7 @@ const { body } = require('express-validator');
 
 const User = require('../models/user');
 const authController = require('../controllers/auth');
+const userAppender = require('../middlewares/user-appender');
 
 const router = express.Router();
 
@@ -36,5 +37,7 @@ router.post('/signup', [
 ], authController.signup);
 
 router.post('/login', authController.login);
+
+router.get('/profile', userAppender, authController.profile);
 
 module.exports = router;

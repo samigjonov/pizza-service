@@ -1,0 +1,61 @@
+<app-page-header [title]="'Contact'" [bgImageUrl]="'assets/images/contact-header.jpg'"></app-page-header>
+
+<div class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header bg-secondary text-white"><i class="fa fa-envelope"></i> Contact form
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Full name</label>
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                       placeholder="Enter your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                       placeholder="Enter email" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="6" required></textarea>
+              </div>
+              <div class="mx-auto">
+                <button type="submit" class="btn btn-outline-secondary text-right">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="card bg-light mb-3">
+          <div class="card-header bg-secondary text-white text-uppercase"><i class="fa fa-info-circle"></i> Info</div>
+          <div class="card-body">
+            <p>
+            <span>
+              <i class="fa fa-home"></i> Address: </span>777 Park Avenue New York, NY 7651
+            </p>
+            <p>
+            <span>
+              <i class="fa fa-envelope"></i> Email: </span>
+              <a href="mailto:info@loremipsumpizza.com">info@loremipsumpizza.com</a>
+            </p>
+            <p>
+            <span>
+              <i class="fa fa-phone"></i> Phone:</span>
+              +998 (97) 753–2858
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="map">
+  <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+</div>

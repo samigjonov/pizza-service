@@ -21,6 +21,10 @@ export class AuthService {
     return this.httpClient.post('/api/signup', signUpData).toPromise();
   }
 
+  public getProfile(): Promise<any> {
+    return this.httpClient.get('/api/profile').toPromise();
+  }
+
   public logout() {
     this.sharedService.removeUser();
     this.router.navigate(['/']);

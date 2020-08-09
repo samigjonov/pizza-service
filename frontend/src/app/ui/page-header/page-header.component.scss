@@ -1,0 +1,21 @@
+.page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+
+  .overlay {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+  }
+
+  section {
+    z-index: 1;
+  }
+}

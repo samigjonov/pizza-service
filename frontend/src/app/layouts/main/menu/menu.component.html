@@ -2,30 +2,32 @@
   <div class="container">
     <h2>Menu</h2>
     <hr>
-    <div class="row">
-      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 item" *ngFor="let pizza of pizzas">
-        <div class="text-center">
-          <img [src]="pizza.imageUrl" class="item__image" alt="{{pizza.title}}">
-        </div>
-        <h5 class="item__title">
-          {{pizza.title}}
-        </h5>
-        <p class="item__description text-secondary">
-          {{ pizza.description }}
-        </p>
-        <div class="item__footer">
+    <app-loader-wrapper [loading]="loading">
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 item" *ngFor="let pizza of pizzas">
+          <div class="text-center">
+            <img [src]="pizza.imageUrl" class="item__image" alt="{{pizza.title}}">
+          </div>
+          <h5 class="item__title">
+            {{pizza.title}}
+          </h5>
+          <p class="item__description text-secondary">
+            {{ pizza.description }}
+          </p>
+          <div class="item__footer">
           <span class="item__price">
             {{ pizza.price | currentCurrency }}
           </span>
-          <button
-            (click)="addToCart(pizza)"
-            type="button"
-            class="btn btn-outline-secondary item__action">
-            <i class="fa fa-shopping-cart"></i>
-            Add to cart
-          </button>
+            <button
+              (click)="addToCart(pizza)"
+              type="button"
+              class="btn btn-outline-secondary item__action">
+              <i class="fa fa-shopping-cart"></i>
+              Add to cart
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </app-loader-wrapper>
   </div>
 </div>

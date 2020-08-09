@@ -6,6 +6,12 @@ import { CheckoutComponent } from "./checkout/checkout.component";
 import { LoginComponent } from "./login/login.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { PizzasComponent } from "./pages/pizzas/pizzas.component";
+import { AboutUsComponent } from "./pages/about-us/about-us.component";
+import { PartnerComponent } from "./pages/partners/partner.component";
+import { GalleriesComponent } from "./pages/galleries/galleries.component";
+import { TestimonialsPageComponent } from "./pages/testimonials/testimonials.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 
 const routes: Route[] = [
   {
@@ -32,6 +38,30 @@ const routes: Route[] = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'menu',
+        component: PizzasComponent
+      },
+      {
+        path: 'about',
+        component: AboutUsComponent
+      },
+      {
+        path: 'partners',
+        component: PartnerComponent
+      },
+      {
+        path: 'gallery',
+        component: GalleriesComponent
+      },
+      {
+        path: 'testimonials',
+        component: TestimonialsPageComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
       }
     ]
   },
