@@ -61,7 +61,7 @@ exports.createOrder = (req, res, next) => {
                     items: transformedItems,
                     totalPrice: {
                         usd: totalPrice.toFixed(2),
-                        eur: (totalPrice * rate).toFixed(2)
+                        eur: (totalPrice * rate.eur).toFixed(2)
                     }
                 });
                 return order.save();
