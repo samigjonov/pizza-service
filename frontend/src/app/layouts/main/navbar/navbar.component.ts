@@ -3,6 +3,7 @@ import { SharedService } from "../../../core/services/shared.service";
 import { Store, select } from "@ngrx/store";
 import { User } from "../../../core/models/user.model";
 import { AuthService } from "../../../core/services/auth.service";
+import { RateService } from "../../../core/services/rate.service";
 
 @Component({
   selector: 'app-navbar',
@@ -15,19 +16,20 @@ export class NavbarComponent {
   public count = 0;
   public user: User;
   public isCurrencyChangerOpen = false;
-  public currentCurrency = localStorage.getItem('currency');
+  public currentCurrency;
 
   public constructor(private sharedService: SharedService, private store: Store<any>,
-                     private authService: AuthService) {
+                     private authService: AuthService, private rateService: RateService) {
     store.pipe(select('shop')).subscribe((data: any) => {
       this.count = data.cart.reduce((previousCount, item) => {
         return previousCount + item.quantity;
-      }, 0)
+      }, 0);
     });
     this.sharedService.user.subscribe(() => {
       this.user = JSON.parse(localStorage.getItem('user')) || null;
     });
     this.user = JSON.parse(localStorage.getItem('user')) || null;
+    this.currentCurrency = this.rateService.getCurrentCurrency();
   }
 
   public openCart() {

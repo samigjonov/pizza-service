@@ -12,4 +12,12 @@ export class RateService {
   public getRate() {
     return this.httpClient.get('/api/rate');
   }
+
+  public getCurrentRate() {
+    return localStorage.getItem('rate') ? parseFloat(localStorage.getItem('rate')) : 1;
+  }
+
+  public getCurrentCurrency() {
+    return localStorage.getItem('currency') === 'eur' ? 'eur' : 'usd';
+  }
 }

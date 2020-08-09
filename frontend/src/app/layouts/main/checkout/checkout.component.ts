@@ -7,6 +7,7 @@ import { SwalService } from "../../../core/services/swal.service";
 import { Router } from "@angular/router";
 import { ClearCart } from "../../../core/store/actions";
 import { OrderService } from "../../../core/services/order.service";
+import { RateService } from "../../../core/services/rate.service";
 
 @Component({
   selector: 'app-checkout',
@@ -16,14 +17,16 @@ import { OrderService } from "../../../core/services/order.service";
 
 export class CheckoutComponent {
   public cartItems: [{ item: Pizza, quantity: number }];
-  public totalPrice: number = 0;
-  public count: number = 0;
+  public totalPrice = 0;
+  public count = 0;
   public checkoutForm: FormGroup;
   public deliveryCost = 10;
+  public rate = 1;
 
   public constructor(private sharedService: SharedService, private store: Store<any>,
                      private swalService: SwalService, private orderService: OrderService,
-                     private router: Router) {
+                     private router: Router,
+                     public rateService: RateService) {
     store.pipe(select('shop')).subscribe((data: any) => {
       this.cartItems = data.cart;
       this.totalPrice = this.cartItems.reduce((previousPrice, item) => {
@@ -40,7 +43,8 @@ export class CheckoutComponent {
       email: new FormControl(user ? user.email : null, [Validators.required, Validators.email]),
       address: new FormControl(null, Validators.required),
       phoneNumber: new FormControl(user ? user.phoneNumber : null, Validators.required)
-    })
+    });
+    this.rate = this.rateService.getCurrentRate();
   }
 
   public async onSubmit() {
@@ -55,8 +59,8 @@ export class CheckoutComponent {
             ...this.checkoutForm.getRawValue(),
             items: sendingItems,
             price: {
-              usd: Math.ceil(this.totalPrice),
-              eur: Math.ceil(this.totalPrice * 0.9)
+              usd: this.totalPrice.toFixed(2),
+              eur: (this.totalPrice * this.rate).toFixed(2)
             }
           };
           await this.orderService.createOrder(sendingValue);
