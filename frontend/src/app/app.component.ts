@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetCurrency, GetItems } from "./core/store/actions";
-import { Store } from "@ngrx/store";
+import { GetCurrency, GetItems } from './core/store/actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { Store } from "@ngrx/store";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'frontend';
+  title = 'Pizza service';
 
   public constructor(private store: Store) {
   }
