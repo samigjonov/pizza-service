@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { ClearCart } from "../../../core/store/actions";
 import { OrderService } from "../../../core/services/order.service";
 import { RateService } from "../../../core/services/rate.service";
+import { AuthService } from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-checkout',
@@ -25,8 +26,8 @@ export class CheckoutComponent {
 
   public constructor(private sharedService: SharedService, private store: Store<any>,
                      private swalService: SwalService, private orderService: OrderService,
-                     private router: Router,
-                     public rateService: RateService) {
+                     private router: Router, public rateService: RateService,
+                     private authService: AuthService) {
     store.pipe(select('shop')).subscribe((data: any) => {
       this.cartItems = data.cart;
       this.totalPrice = this.cartItems.reduce((previousPrice, item) => {
@@ -66,7 +67,11 @@ export class CheckoutComponent {
           await this.orderService.createOrder(sendingValue);
           this.swalService.showBasicAlert();
           this.store.dispatch(new ClearCart());
-          this.router.navigate(['/']);
+          if (this.authService.isAuthenticated()) {
+            this.router.navigate(['/profile']);
+          } else {
+            this.router.navigate(['/']);
+          }
         } catch (e) {
           this.swalService.showErrorAlert();
         }

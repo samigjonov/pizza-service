@@ -29,4 +29,8 @@ export class AuthService {
     this.sharedService.removeUser();
     this.router.navigate(['/']);
   }
+
+  public isAuthenticated() {
+    return localStorage.getItem('user');
+  }
 }

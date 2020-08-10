@@ -10,6 +10,7 @@ import { ShopReducer } from "./core/store/reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { ShopEffects } from "./core/store/effects";
 import { JwtInterceptor } from "./core/interceptors/jwt.interceptor";
+import { ErrorInterceptor } from "./core/interceptors/error.interceptor";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { JwtInterceptor } from "./core/interceptors/jwt.interceptor";
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

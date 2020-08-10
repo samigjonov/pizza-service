@@ -29,6 +29,7 @@
         Password is required.
       </div>
     </div>
-    <button class="btn btn-lg btn-outline-secondary btn-block" type="submit">Log In</button>
+    <button [disabled]="loginForm.invalid" class="btn btn-lg btn-outline-secondary btn-block" type="submit">Log In
+    </button>
   </form>
 </div>

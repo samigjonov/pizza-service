@@ -16,7 +16,9 @@ exports.getOrders = (req, res, next) => {
             return Order
                 .find({
                     '_id': { $in: user.orders }
-                }).then(orders => {
+                })
+                .sort({ createdAt: -1 })
+                .then(orders => {
                     res.status(200).json({
                         message: 'Orders fetched successfully.',
                         data: orders
@@ -29,6 +31,7 @@ exports.getOrders = (req, res, next) => {
 
 
 exports.createOrder = (req, res, next) => {
+    const deliveryCost = 10;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         validationErrorHandler();
@@ -60,8 +63,8 @@ exports.createOrder = (req, res, next) => {
                     email: email,
                     items: transformedItems,
                     totalPrice: {
-                        usd: totalPrice.toFixed(2),
-                        eur: (totalPrice * rate.eur).toFixed(2)
+                        usd: (totalPrice + deliveryCost).toFixed(2),
+                        eur: ((totalPrice + deliveryCost) * rate.eur).toFixed(2)
                     }
                 });
                 return order.save();
