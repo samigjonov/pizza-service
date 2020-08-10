@@ -2,7 +2,7 @@
 
 [![N|Solid](https://pizza-order-service.herokuapp.com/assets/images/logo.png)](https://pizza-order-service.herokuapp.com/)
 
-Pizza service in a online platform which is used for ordering the pizza. 
+Pizza service in an online platform which is used for ordering the pizza. 
 ##### The platform is implemented using following tech stackes:
 
   - NodeJS (Express)
@@ -16,7 +16,7 @@ Pizza service in a online platform which is used for ordering the pizza.
   - Viewing the menu
   - Adding the pizza to the cart
   - Checkouting (ordering the pizza)
-  - Switching the currency (between EUR and USD / Rate is loaded from external)
+  - Switching the currency (between EUR and USD / Rate is loaded from external API)
   - Authorization (you can view your order history only if you are authorized)
 
 #### Also implemented:
